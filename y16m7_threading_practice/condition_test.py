@@ -10,11 +10,13 @@ def consumer_thread_func():
     global tmp
     global g_cond
     g_cond.acquire()
+    print "subthread acquired lock\n"
     while(True):
         if(tmp > 5):
             tmp -= 1
             print "subthread consumed tmp: %d" % tmp
         else:
+            print "subthread wait notify"
             g_cond.wait()
             print "waked up by another thread!"
     g_cond.release()
@@ -34,6 +36,8 @@ if __name__ == '__main__':
         else:
             tmp += 1
             print "mainthred produced tmp: %d" % tmp
+        time.sleep(1)
+        print "mainthread release lock"
         g_cond.release()
         time.sleep(1)
     t.join()
