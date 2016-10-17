@@ -81,9 +81,9 @@ DATABASES = {
         'ENGINE':'django.db.backends.mysql',
         'NAME': 'CMDB',
         'USER': 'root',
-        'PASSWORD': 'pass2015@sh',
-        'HOST': '172.16.157.130',
-        'PORT': '3308',
+        'PASSWORD': 'password',
+        'HOST': '192.168.1.1',
+        'PORT': '3306',
     }
 }
 
